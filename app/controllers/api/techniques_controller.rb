@@ -25,4 +25,18 @@ class Api::TechniquesController < ApplicationController
 
     render "show.json.jb"
   end
+
+  def update
+    @technique = Technique.find_by(id: params["id"])
+
+    @technique.name = params["name"] || @technique.name
+    @technique.description = params["description"] || @technique.description
+    @technique.source = params["source"] || @technique.source
+    @technique.priority = params["priority"] || @technique.priority
+    @technique.type_id = params["type_id"] || @technique.type_id
+
+    @technique.save
+
+    render "show.json.jb"
+  end
 end
