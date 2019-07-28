@@ -39,4 +39,12 @@ class Api::TechniquesController < ApplicationController
 
     render "show.json.jb"
   end
+
+  def destroy
+    @technique = Technique.find_by(id: params["id"])
+
+    @technique.destroy
+
+    render json: { message: "Technique deleted" }
+  end
 end
