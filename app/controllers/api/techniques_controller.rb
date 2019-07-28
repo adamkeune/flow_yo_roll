@@ -12,7 +12,7 @@ class Api::TechniquesController < ApplicationController
       source: params["source"],
       priority: params["priority"].to_i,
       type_id: params["type_id"].to_i,
-      user_id: 1,
+      user_id: 1, # change after adding auth
     })
 
     @technique.save
