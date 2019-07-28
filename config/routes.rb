@@ -20,5 +20,7 @@ Rails.application.routes.draw do
     get "/videos/:id" => "videos#show"
     # patch "/videos/:id" => "videos#update" NOT NEEDED
     delete "/videos/:id" => "videos#destroy"
+
+    post "/practices" => "practices#create"
   end
 end
