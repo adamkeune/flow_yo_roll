@@ -23,4 +23,12 @@ class Api::VideosController < ApplicationController
 
     render "show.json.jb"
   end
+
+  def destroy
+    @video = Video.find_by(id: params["id"])
+
+    @video.destroy
+
+    render json: { message: "Video deleted" }
+  end
 end
