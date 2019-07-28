@@ -14,5 +14,11 @@ Rails.application.routes.draw do
     # get "/techniques/:id/edit" => "techniques#edit"
     patch "/techniques/:id" => "techniques#update"
     delete "/techniques/:id" => "techniques#destroy"
+
+    get "/videos" => "videos#index"
+    post "/videos" => "videos#create"
+    get "/videos/:id" => "videos#show"
+    # patch "/videos/:id" => "videos#update" NOT NEEDED
+    delete "/videos/:id" => "videos#destroy"
   end
 end

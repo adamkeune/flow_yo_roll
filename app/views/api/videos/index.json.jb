@@ -1,0 +1,8 @@
+@videos.map do |video|
+  {
+    id: video.id,
+    title: video.title,
+    url: video.url,
+    technique: video.technique_id,
+  }
+end
