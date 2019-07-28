@@ -8,10 +8,10 @@ Rails.application.routes.draw do
     post "/sessions" => "sessions#create" # build later
 
     get "/techniques" => "techniques#index"
-    get "/techniques/new" => "techniques#new"
+    # get "/techniques/new" => "techniques#new"
     post "/techniques" => "techniques#create"
     get "/techniques/:id" => "techniques#show"
-    get "/techniques/:id/edit" => "techniques#edit"
+    # get "/techniques/:id/edit" => "techniques#edit"
     patch "/techniques/:id" => "techniques#update"
     delete "/techniques/:id" => "techniques#destroy"
   end
