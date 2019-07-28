@@ -1,0 +1,13 @@
+{
+  name: @technique.name,
+  description: @technique.description,
+  source: @technique.source,
+  priority: @technique.priority,
+  created_at: @technique.created_at,
+  updated_at: @technique.updated_at,
+  type: @technique.type_id,
+  formatted: {
+    friendly_created_at: @technique.created_at.strftime("%D"),
+    friendly_updated_at: @technique.updated_at.strftime("%D"),
+  },
+}

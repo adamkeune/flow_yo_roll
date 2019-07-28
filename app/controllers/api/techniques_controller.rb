@@ -4,4 +4,10 @@ class Api::TechniquesController < ApplicationController
 
     render "index.json.jb"
   end
+
+  def show
+    @technique = Technique.find_by(id: params["id"])
+
+    render "show.json.jb"
+  end
 end
