@@ -9,7 +9,7 @@ class Api::VideosController < ApplicationController
     @video = Video.new({
       title: params["title"],
       url: params["url"],
-      technique: params["technique_id"],
+      technique_id: params["technique_id"],
       user_id: 1, # change after adding auth
     })
 
