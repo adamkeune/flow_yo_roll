@@ -1,6 +1,8 @@
 class Api::TechniquesController < ApplicationController
+  before_action :authenticate_user
+
   def index
-    @techniques = Technique.all
+    @techniques = current_user.techniques.all
 
     render "index.json.jb"
   end
@@ -12,7 +14,7 @@ class Api::TechniquesController < ApplicationController
       source: params["source"],
       priority: params["priority"].to_i,
       type_id: params["type_id"].to_i,
-      user_id: 1, # change after adding auth
+      user_id: current_user.id,
     })
 
     @technique.save
@@ -21,13 +23,13 @@ class Api::TechniquesController < ApplicationController
   end
 
   def show
-    @technique = Technique.find_by(id: params["id"])
+    @technique = current_user.techniques.find_by(id: params["id"])
 
     render "show.json.jb"
   end
 
   def update
-    @technique = Technique.find_by(id: params["id"])
+    @technique = current_user.techniques.find_by(id: params["id"])
 
     @technique.name = params["name"] || @technique.name
     @technique.description = params["description"] || @technique.description
@@ -41,7 +43,7 @@ class Api::TechniquesController < ApplicationController
   end
 
   def destroy
-    @technique = Technique.find_by(id: params["id"])
+    @technique = current_user.techniques.find_by(id: params["id"])
 
     @technique.destroy
 

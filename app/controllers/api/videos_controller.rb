@@ -1,6 +1,8 @@
 class Api::VideosController < ApplicationController
+  before_action :authenticate_user
+
   def index
-    @videos = Video.all
+    @videos = current_user.videos.all
 
     render "index.json.jb"
   end
@@ -10,22 +12,24 @@ class Api::VideosController < ApplicationController
       title: params["title"],
       url: params["url"],
       technique_id: params["technique_id"],
-      user_id: 1, # change after adding auth
+      user_id: current_user.id,
     })
 
-    @video.save
-
-    render "show.json.jb"
+    if @video.save
+      render "show.json.jb"
+    else
+      render json: { message: "Video not saved" }, status: 422
+    end
   end
 
   def show
-    @video = Video.find_by(id: params["id"])
+    @video = current_user.videos.find_by(id: params["id"])
 
     render "show.json.jb"
   end
 
   def destroy
-    @video = Video.find_by(id: params["id"])
+    @video = current_user.videos.find_by(id: params["id"])
 
     @video.destroy
 

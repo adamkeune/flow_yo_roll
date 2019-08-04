@@ -21,6 +21,16 @@ Rails.application.routes.draw do
     # patch "/videos/:id" => "videos#update" NOT NEEDED
     delete "/videos/:id" => "videos#destroy"
 
+    get "/practices" => "practices#index"
     post "/practices" => "practices#create"
+
+    get "/flows" => "flows#index"
+    post "/flows" => "flows#create"
+    get "/flows/:id" => "flows#show"
+    patch "/flows/:id" => "flows#update"
+    delete "/flows/:id" => "flows#destroy"
+
+    post "/flow_techniques" => "flow_techniques#create"
+    delete "/flow_techniques/:id" => "flow_techniques#destroy"
   end
 end

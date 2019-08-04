@@ -1,0 +1,6 @@
+{
+  id: flow.id,
+  title: flow.title,
+  description: flow.description,
+  techniques: flow.techniques,
+}
