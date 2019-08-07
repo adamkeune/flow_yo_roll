@@ -17,9 +17,11 @@ class Api::TechniquesController < ApplicationController
       user_id: current_user.id,
     })
 
-    @technique.save
-
-    render "show.json.jb"
+    if @technique.save
+      render "show.json.jb"
+    else
+      render json: { errors: @technique.errors.full_messages }, status: 422
+    end
   end
 
   def show
@@ -37,9 +39,11 @@ class Api::TechniquesController < ApplicationController
     @technique.priority = params["priority"] || @technique.priority
     @technique.type_id = params["type_id"] || @technique.type_id
 
-    @technique.save
-
-    render "show.json.jb"
+    if @technique.save
+      render "show.json.jb"
+    else
+      render json: { errors: @technique.errors.full_messages }, status: 422
+    end
   end
 
   def destroy

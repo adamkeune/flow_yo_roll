@@ -18,7 +18,7 @@ class Api::VideosController < ApplicationController
     if @video.save
       render "show.json.jb"
     else
-      render json: { message: "Video not saved" }, status: 422
+      render json: { errors: @video.errors.full_messages }, status: 422
     end
   end
 

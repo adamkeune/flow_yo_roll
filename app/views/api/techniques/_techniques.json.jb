@@ -6,7 +6,8 @@
   priority: technique.priority,
   created_at: technique.created_at,
   updated_at: technique.updated_at,
-  type_id: technique.type_id,
+  type: technique.type,
+  videos: technique.videos,
   formatted: {
     friendly_created_at: technique.created_at.strftime("%D"),
     friendly_updated_at: technique.updated_at.strftime("%D"),
