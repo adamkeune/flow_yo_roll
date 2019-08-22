@@ -3,6 +3,7 @@
   technique: practice.technique,
   created_at: practice.created_at,
   updated_at: practice.updated_at,
+  friendly_created_at: practice.friendly_created_at,
   formatted: {
     friendly_created_at: practice.created_at.strftime("%D"),
     friendly_updated_at: practice.updated_at.strftime("%D"),

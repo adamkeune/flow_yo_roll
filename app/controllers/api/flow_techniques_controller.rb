@@ -22,7 +22,7 @@ class Api::FlowTechniquesController < ApplicationController
   end
 
   def destroy
-    @flow_technique = FlowTechnique.find_by(id: params["id"])
+    @flow_technique = FlowTechnique.where(technique_id: params["id"]).last
     @flow_technique.destroy
     render json: { message: "Removed from flow!" }
   end
