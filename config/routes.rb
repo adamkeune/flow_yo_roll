@@ -27,6 +27,7 @@ Rails.application.routes.draw do
     patch "/flows/:id" => "flows#update"
     delete "/flows/:id" => "flows#destroy"
 
+    get "/flow_techniques" => "flow_techniques#index"
     post "/flow_techniques" => "flow_techniques#create"
     delete "/flow_techniques/:id" => "flow_techniques#destroy"
   end

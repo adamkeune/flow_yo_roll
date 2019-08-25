@@ -1,6 +1,16 @@
 class Api::FlowTechniquesController < ApplicationController
   before_action :authenticate_user
 
+  def index
+    flow = current_user.flows.find_by(id: params["flow_id"])
+
+    if flow
+      @flow_techniques = FlowTechnique.where(flow_id: params["flow_id"])
+    end
+
+    render "index.json.jb"
+  end
+
   def create
     flow = current_user.flows.find_by(id: params["flow_id"])
     technique = current_user.techniques.find_by(id: params["technique_id"])
@@ -15,7 +25,7 @@ class Api::FlowTechniquesController < ApplicationController
     end
 
     if @flow_technique.save
-      render json: { message: "Added to flow!" }
+      render "show.json.jb"
     else
       render json: { errors: @flow_technique.errors.full_messages }
     end

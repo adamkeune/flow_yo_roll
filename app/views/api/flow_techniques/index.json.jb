@@ -1,0 +1,3 @@
+@flow_techniques.map do |flow_technique|
+  render partial: "flow_techniques.json.jb", locals: { flow_technique: flow_technique }
+end

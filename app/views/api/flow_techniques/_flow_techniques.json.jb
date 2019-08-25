@@ -1,0 +1,11 @@
+{
+  id: flow_technique.id,
+  technique_id: flow_technique.technique_id,
+  name: flow_technique.technique.name,
+  description: flow_technique.technique.description,
+  source: flow_technique.technique.source,
+  priority: flow_technique.technique.priority,
+  created_at: flow_technique.technique.created_at,
+  updated_at: flow_technique.technique.updated_at,
+  type: flow_technique.technique.type,
+}
