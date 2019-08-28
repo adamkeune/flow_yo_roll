@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_31_234906) do
+ActiveRecord::Schema.define(version: 2019_08_28_003359) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -20,6 +20,8 @@ ActiveRecord::Schema.define(version: 2019_07_31_234906) do
     t.integer "technique_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "source_position_id"
+    t.integer "target_position_id"
   end
 
   create_table "flows", force: :cascade do |t|

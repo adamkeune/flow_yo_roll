@@ -19,6 +19,8 @@ class Api::FlowTechniquesController < ApplicationController
       @flow_technique = FlowTechnique.new({
         flow_id: flow.id,
         technique_id: technique.id,
+        source_position_id: params["source_position_id"],
+        target_position_id: params["target_position_id"],
       })
     else
       render json: {}, status: :unauthorized
@@ -32,7 +34,7 @@ class Api::FlowTechniquesController < ApplicationController
   end
 
   def destroy
-    @flow_technique = FlowTechnique.where(technique_id: params["id"]).last
+    @flow_technique = FlowTechnique.find_by(id: params["id"])
     @flow_technique.destroy
     render json: { message: "Removed from flow!" }
   end

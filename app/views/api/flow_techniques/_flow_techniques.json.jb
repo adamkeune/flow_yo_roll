@@ -8,4 +8,6 @@
   created_at: flow_technique.technique.created_at,
   updated_at: flow_technique.technique.updated_at,
   type: flow_technique.technique.type,
+  source_position_id: flow_technique.source_position_id,
+  target_position_id: flow_technique.target_position_id,
 }
