@@ -16,6 +16,7 @@ Rails.application.routes.draw do
     get "/videos" => "videos#index"
     post "/videos" => "videos#create"
     get "/videos/:id" => "videos#show"
+    # update "/videos/:id" => "videos#update"
     delete "/videos/:id" => "videos#destroy"
 
     get "/practices" => "practices#index"

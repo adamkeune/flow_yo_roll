@@ -20,6 +20,7 @@ class Api::TechniquesController < ApplicationController
     if @technique.save
       if params["video"]
         @video = Video.find_by(url: params["video"])
+
         if @video
           @video.technique_id = @technique.id
         else
@@ -28,10 +29,10 @@ class Api::TechniquesController < ApplicationController
             title: params["name"],
             url: params["video"],
           })
-          @video.save
-
-          render "show.json.jb"
         end
+
+        @video.save
+        render "show.json.jb"
       end
     else
       render json: { errors: @technique.errors.full_messages }, status: 422

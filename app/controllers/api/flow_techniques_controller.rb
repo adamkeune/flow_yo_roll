@@ -21,6 +21,7 @@ class Api::FlowTechniquesController < ApplicationController
         technique_id: technique.id,
         source_position_id: params["source_position_id"],
         target_position_id: params["target_position_id"],
+        success: params["success"],
       })
     else
       render json: {}, status: :unauthorized
