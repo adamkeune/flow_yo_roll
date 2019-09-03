@@ -32,8 +32,8 @@ class Api::TechniquesController < ApplicationController
         end
 
         @video.save
-        render "show.json.jb"
       end
+      render "show.json.jb"
     else
       render json: { errors: @technique.errors.full_messages }, status: 422
     end
